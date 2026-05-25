@@ -2,43 +2,137 @@
 <html>
 <head>
   <title>Virtual Letter</title>
+
   <style>
     body {
-      background-color: #fbeaea;
-      font-family: Arial;
+      height: 100vh;
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      font-family: Georgia, serif;
     }
 
+    /* 🌌 BEFORE OPENING (BLUE NIGHT) */
+    .start-screen {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+    }
+
+    /* 💙 AFTER OPENING (BLUE AESTHETIC) */
+    .letter-screen {
+      width: 100%;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+      background:
+        linear-gradient(rgba(0, 100, 200, 0.3), rgba(0, 150, 255, 0.3)),
+        url("111.jpg") no-repeat center center fixed;
+
+      background-size: cover;
+      animation: gradientMove 10s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 💌 ENVELOPE */
+    .envelope {
+      width: 220px;
+      height: 150px;
+      background: #cfe8ff;
+      border: 3px solid #4aa3ff;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      color: #0f2d4a;
+      font-weight: bold;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    /* 📜 LETTER */
     .letter {
-      background: white;
+      max-width: 600px;
       padding: 30px;
-      border-radius: 15px;
-      width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+      background: rgba(220, 240, 255, 0.9);
+      border: 3px solid #4aa3ff;
+      border-radius: 10px;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      color: #0f2d4a;
+      text-align: center;
+
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     h1 {
-      text-align: center;
+      color: #1a4d7a;
     }
+
   </style>
 </head>
+
 <body>
 
-<div class="letter">
-  <h1>💌 A Letter For You</h1>
+  <!-- 💌 ENVELOPE SCREEN -->
+  <div class="start-screen" id="start">
+    <div class="envelope" onclick="openLetter()">
+      💌 Click to Open
+    </div>
+  </div>
 
-  <p>Dear Friend,</p>
+  <!-- 📜 LETTER SCREEN -->
+  <div class="letter-screen" id="letterScreen">
 
-  <p>
-    Thank you for always being there for me.
-    I hope this message makes you smile today.
-  </p>
+    <div class="letter">
 
-  <p>— Ken</p>
-</div>
+      <h1>💙 A Letter For You</h1>
+
+      <p>dawunnnnn!!,</p>
+
+      <p>
+        im like really thankful nga gi pa meet ta ni Lord bay like literal, jud nga i could not imagine bay nga mu survive ko 
+        aning first year without u guys, and ang background pic kay atong first ever uban nga us duha ofcourse with ur frenny nga nakita rapod nato HAHAHAH 
+        anyways i just wanna say nga i love you and i appreciate u so much and im beyond grateful that you came into my life kamo ni nikolai. labyouuuu
+      </p>
+
+      <p>— Presyosaaa</p>
+
+    </div>
+
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById("start").style.display = "none";
+      document.getElementById("letterScreen").style.display = "flex";
+    }
+  </script>
 
 </body>
 </html>
